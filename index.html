@@ -13,11 +13,17 @@ table#t01 {
     width: 100%;    
     background-color: #f1f1c1;
 }
+
+.names{ font-weight: bold; }
+th, td {
+    padding: 5px;
+    text-align: center;
+	color: #000000;
+}
 </style>
    <HEAD>
       <TITLE>VIOLA-RWA Maintenance Calculator</TITLE>
    </HEAD>
-   .names{ font-weight: bold; }
    
 <body style="margin-left:50pt;padding:0">
 
@@ -88,11 +94,12 @@ table#t01 {
 		<tr bgcolor="#FFD700">
 			<th rowspan="2" bgcolor="#FFD700"><font color="#DC143C">2BHK</font></th>
 			<td><b><font color="#1E90FF">Total</font></b></td>
-			<td style="text-align:center"><font color="#000000" >10</td>
-			<td style="text-align:center"><font color="#000000" >5</td>
-			<td style="text-align:center"><font color="#000000" >5</td>
-			<td style="text-align:center"><font color="#000000" >0</td>
-			<td style="text-align:center"><font color="#000000" >10</td>
+				<td><span class="names">10</span></td>
+				<td><span class="names">5</span></td>
+				<td><span class="names">5</span></td>
+				<td><span class="names">0</span></td>
+				<td><span class="names">10</span></td>
+			</span>
 		</tr>
 		<tr bgcolor="#FFD700">
 			<td><font color="#1E90FF">Paid</font></td>
@@ -108,11 +115,11 @@ table#t01 {
 		<tr bgcolor="#32CD32">
 			<th rowspan="2"><font color="#DC143C">3BHK </font></th>
 			<td><b><font color="#1E90FF">Total</font></b></td>
-			<td style="text-align:center"><font color="#000000">5</font></td>
-			<td style="text-align:center"><font color="#000000" >15</td>
-			<td style="text-align:center"><font color="#000000" >20</td>
-			<td style="text-align:center"><font color="#000000" >15</td>
-			<td style="text-align:center"><font color="#000000" >15</td>
+			<td><span class="names">5</span></td>
+			<td><span class="names">15</span></td>
+			<td><span class="names">20</span></td>
+			<td><span class="names">15</span></td>
+			<td><span class="names">15</span></td>			
 		</tr>
 		<tr bgcolor="#32CD32">
 			<td><font color="#1E90FF">Paid</font></td>
@@ -128,11 +135,11 @@ table#t01 {
 		<tr bgcolor="#FFDEAD">
 			<th rowspan="2"><font color="#DC143C">4BHK </font></th>
 			<td><b><font color="#1E90FF">Total</font></b></td>
-			<td style="text-align:center " ><font color="#000000" >0</td>
-			<td style="text-align:center "><font color="#000000" >5</td>
-			<td style="text-align:center "><font color="#000000" >0</td>
-			<td style="text-align:center"><font color="#000000" >5</td>
-			<td style="text-align:center"><font color="#000000" >0</td>
+			<td><span class="names">0</span></td>
+			<td><span class="names">5</span></td>
+			<td><span class="names">0</span></td>
+			<td><span class="names">5</span></td>
+			<td><span class="names">0</span></td>			
 		</tr>
 		<tr bgcolor="#FFDEAD">
 			<td><font color="#1E90FF">Paid</font></td>
@@ -160,30 +167,30 @@ table#t01 {
 		<th style="text-align:center"><font color="#FF4500">Total <br/>expected <br/>collection</font></th>		
 	</tr>
 	<tr bgcolor="#FFD700">
-		<td>2BHK</td>
+		<th  bgcolor="#FFD700"><font color="#DC143C">2BHK</font></th>
 		<td><input type="number" id="maintenance_bhk2" disabled=true style="background-color:lightgrey; 
               border: solid 1px #6E6E6E;
-              height: 30px; 
+              
               font-size:18px; 
               vertical-align:9px;color:#ff0000; text-align:center;"></td>
 		<td><input type="number" id="paid_by_bhk2" disabled=true style="text-align:center;" ></td>
 		<td><input type="number" id="expected_collection_bhk2" disabled=true></td>
 	</tr>
 	<tr bgcolor="#32CD32">
-		<td>3BHK</td>
+		<th  bgcolor="#32CD32"><font color="#DC143C">3BHK</font></th>
 		<td><input type="number" id="maintenance_bhk3" disabled=true style="background-color:lightgrey; 
               border: solid 1px #6E6E6E;
-              height: 30px; 
+              
               font-size:18px; 
               vertical-align:9px;color:#ff0000;text-align:center;"></td>
 		<td><input type="number" id="paid_by_bhk3" disabled=true style="text-align:center;" ></td>
 		<td><input type="number" id="expected_collection_bhk3" disabled=true></td>
 	</tr>
 	<tr bgcolor="#FFDEAD">
-		<td>4BHK</td>
+		<th  bgcolor="#FFDEAD"><font color="#DC143C">4BHK</font></th>
 		<td><input type="number" id="maintenance_bhk4" disabled=true style="background-color:lightgrey; 
               border: solid 1px #6E6E6E;
-              height: 30px; 
+              
               font-size:18px; 
               vertical-align:9px;color:#ff0000;text-align:center;"></td>
 		<td><input type="number" id="paid_by_bhk4" disabled=true style="text-align:center;" ></td>
