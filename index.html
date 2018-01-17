@@ -1,1 +1,299 @@
-hello world
+<!DOCTYPE html>
+<html>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+table#t01 {
+    width: 100%;    
+    background-color: #f1f1c1;
+}
+</style>
+   <HEAD>
+      <TITLE>VIOLA-RWA Maintenance Calculator</TITLE>
+   </HEAD>
+<body>
+
+<h1>VRWA Maintenance Calculator.</h1>
+<h3> <font color="#FF4500">STEP - 1 :CALCULATE YOUR EXPENSES FOR CURRENT MONTH :</font></h3>
+
+<table>
+	<tr bgcolor="#000000" >
+		<th  bgcolor="#ffffff">Services</th>
+		<th><font color="#FF4500">Cost(inr)</font></th>
+	</tr>
+	<tr bgcolor="#FFD700">
+		<td style="text-align:right">STP</td>
+		<td><input type="number" id="stp_exp" min="0" value="28000"></td>
+	</tr>
+	<tr bgcolor="#FFD700">
+		<td style="text-align:right">SECURITY</td>
+		<td><input type="number" id="security_exp" min="0" value="68000"></td>
+	</tr>
+	<tr bgcolor="#FFD700">
+		<td style="text-align:right">HOUSE-KEEPING</td>
+		<td><input type="number" id="housekeeping_exp" min="0" value="37500"></td>
+	</tr>	
+	<tr bgcolor="#FFD700">
+		<td style="text-align:right">BESCOM</td>
+		<td><input type="number" id="bescom_exp" min="0" value="45000"></td>
+	</tr>
+	<tr bgcolor="#FFD700">
+		<td style="text-align:right">GENERATOR</td>
+		<td><input type="number" id="generator_exp" min="0" value="15000"></td>
+	</tr>
+	<tr bgcolor="#FFD700">
+		<td style="text-align:right">DIESEL</td>
+		<td><input type="number" id="diesel_exp" min="0" value="25000"></td>
+	</tr>
+	<tr bgcolor="#FFD700">
+		<td style="text-align:right">AMENITIES</td>
+		<td><input type="number" id="amenities_exp" min="0" value="7000"></td>
+	</tr>
+	<tr bgcolor="#FFD700">
+		<td style="text-align:right">GARBAGE</td>
+		<td><input type="number" id="garbage_exp" min="0" value="5000"></td>
+	</tr>
+	<tr bgcolor="#FFD700">
+		<td style="text-align:right">Misc.(others)</td>
+		<td><input type="number" id="misc_exp" min="0" value="0"></td>
+	</tr>	
+	<tr>
+		<td><button onclick="ExpenseCalculate()">Calculate Expense</button></td>
+		<td><input type="number" id="total_expense" disabled=true min="0" value="0" ></td>
+	</tr>  
+</table>
+<p/>
+
+<p><h3><h3> <font color="orange">STEP - 2 :Input data - Expense to be shared among(door# paid last month).</h3></p>
+
+<table>
+	<tr bgcolor="#000000" >
+		<th  bgcolor="#ffffff"></th>
+		<th  bgcolor="#ffffff"></th>
+		<th style="text-align:center"><font color="#FF4500" >A</font></th>
+		<th style="text-align:center"><font color="#FF4500">B</font></th>
+		<th style="text-align:center"><font color="#FF4500">C</font></th>
+		<th style="text-align:center"><font color="#FF4500">D</font></th>
+		<th style="text-align:center"><font color="#FF4500">E</font></th>
+	</tr>
+  <tr>
+		<tr bgcolor="#FFD700">
+			<th rowspan="2" bgcolor="#FFD700"><font color="#DC143C">2BHK</font></th>
+			<td><b><font color="#1E90FF">Total</font></b></td>
+			<td>10</td>
+			<td>5</td>
+			<td>5</td>
+			<td>0</td>
+			<td>10</td>
+		</tr>
+		<tr bgcolor="#FFD700">
+			<td><font color="#1E90FF">Paid</font></td>
+			<td><input type="number" id="a2bhk" min="0" max="10" value="6"></td>
+			<td><input type="number" id="b2bhk" min="0" max="5"  value="5"></td>
+			<td><input type="number" id="c2bhk" min="0" max="5"  value="4"></td>
+			<td><input type="number" id="d2bhk" min="0" max="0" disabled=true  value="0"></td>
+			<td><input type="number" id="e2bhk" min="0" max="10" value="2"></td>
+		</tr>
+
+  </tr>
+  <tr>
+		<tr bgcolor="#32CD32">
+			<th rowspan="2"><font color="#DC143C">3BHK </font></th>
+			<td><b><font color="#1E90FF">Total</font></b></td>
+			<td>5</td>
+			<td>15</td>
+			<td>20</td>
+			<td>15</td>
+			<td>15</td>
+		</tr>
+		<tr bgcolor="#32CD32">
+			<td><font color="#1E90FF">Paid</font></td>
+			<td><input type="number" id="a3bhk" min="0" max="5" value="4"></td>
+			<td><input type="number" id="b3bhk" min="0" max="15" value="13"></td>
+			<td><input type="number" id="c3bhk" min="0" max="20" value="13"></td>
+			<td><input type="number" id="d3bhk" min="0" max="15"  value="9"></td>
+			<td><input type="number" id="e3bhk" min="0" max="15" value="8"></td>
+		</tr>
+
+  </tr> 
+  <tr>
+		<tr bgcolor="#FFDEAD">
+			<th rowspan="2"><font color="#DC143C">4BHK </font></th>
+			<td><b><font color="#1E90FF">Total</font></b></td>
+			<td>0</td>
+			<td>5</td>
+			<td>0</td>
+			<td>5</td>
+			<td>0</td>
+		</tr>
+		<tr bgcolor="#FFDEAD">
+			<td><font color="#1E90FF">Paid</font></td>
+			<td><input type="number" id="a4bhk" min="0" max="0" disabled=true></td>
+			<td><input type="number" id="b4bhk" min="0" max="5" value="4"></td>
+			<td><input type="number" id="c4bhk" min="0" max="0" disabled=true></td>
+			<td><input type="number" id="d4bhk" min="0" max="5" value="3"></td>
+			<td><input type="number" id="e4bhk" min="0" max="0" disabled=true></td>
+		</tr>
+
+  </tr>    
+</table>
+<br/>
+
+<button onclick="myFunction()">Calculate Maintenance</button>
+<br />
+
+<p><h3><h3> <font color="green">Maintenace table distribution 2/3/4 bhk.</h3></p>
+
+<table >
+	<tr bgcolor="#000000" >
+		<th  bgcolor="#ffffff"></th>
+		<th style="text-align:center"><font color="#FF4500">Maintenance <br/>amount <br/>(per flat)</font></th>
+		<th style="text-align:center"><font color="#FF4500">Expected <br/>to be <br/>paid by <br/>flat #</font></th>
+		<th style="text-align:center"><font color="#FF4500">Total <br/>expected <br/>collection</font></th>		
+	</tr>
+	<tr bgcolor="#FFD700">
+		<td>2BHK</td>
+		<td><input type="number" id="maintenance_bhk2" disabled=true ></td>
+		<td><input type="number" id="paid_by_bhk2" disabled=true></td>
+		<td><input type="number" id="expected_collection_bhk2" disabled=true></td>
+	</tr>
+	<tr bgcolor="#32CD32">
+		<td>3BHK</td>
+		<td><input type="number" id="maintenance_bhk3" disabled=true></td>
+		<td><input type="number" id="paid_by_bhk3" disabled=true></td>
+		<td><input type="number" id="expected_collection_bhk3" disabled=true></td>
+	</tr>
+	<tr bgcolor="#FFDEAD">
+		<td>4BHK</td>
+		<td><input type="number" id="maintenance_bhk4" disabled=true></td>
+		<td><input type="number" id="paid_by_bhk4" disabled=true></td>
+		<td><input type="number" id="expected_collection_bhk4" disabled=true></td>
+	</tr>	
+  </tr>  
+<tr>
+<td></td>
+<td></td>
+<td><input type="number" id="total_doors" disabled=true></td>
+<td><input type="number" id="total_collection" disabled=true></td>
+</tr>  
+</table>
+
+
+<script>
+function ExpenseCalculate(){
+	
+	var stp_exp=document.getElementById("stp_exp").value;
+	var security_exp=document.getElementById("security_exp").value;
+	var housekeeping_exp=document.getElementById("housekeeping_exp").value;
+	var bescom_exp=document.getElementById("bescom_exp").value;
+	var generator_exp=document.getElementById("generator_exp").value;
+	var diesel_exp=document.getElementById("diesel_exp").value;
+	var amenities_exp=document.getElementById("amenities_exp").value;
+	var garbage_exp=document.getElementById("garbage_exp").value;
+	var misc_exp=document.getElementById("misc_exp").value;
+	
+	var total_expense = parseInt(stp_exp)+parseInt(security_exp)+parseInt(housekeeping_exp)+parseInt(bescom_exp)+parseInt(generator_exp)+parseInt(diesel_exp)+parseInt(amenities_exp)+parseInt(garbage_exp) +parseInt(misc_exp);
+	
+	
+	document.getElementById("total_expense").value = total_expense;
+}
+
+function myFunction() {
+	
+    
+	var a2=document.getElementById("a2bhk").value;
+	var b2=document.getElementById("b2bhk").value;
+	var c2=document.getElementById("c2bhk").value;
+	var e2=document.getElementById("e2bhk").value;
+	var total_2bhk = parseInt(a2)+parseInt(b2)+parseInt(c2)+parseInt(e2);
+	
+	
+	var a3=document.getElementById("a3bhk").value;
+	var b3=document.getElementById("b3bhk").value;
+	var c3=document.getElementById("c3bhk").value;
+	var d3=document.getElementById("d3bhk").value;	
+	var e3=document.getElementById("e3bhk").value;	
+	var total_3bhk = parseInt(a3)+parseInt(b3)+parseInt(c3)+parseInt(d3)+parseInt(e3);
+	
+	var b4=document.getElementById("b4bhk").value;
+	var d4=document.getElementById("d4bhk").value;	
+	var total_4bhk = parseInt(b4)+ parseInt(d4);
+	
+	var total_paid = parseInt(total_2bhk) + parseInt(total_3bhk) + parseInt(total_4bhk);
+	//alert ( total_paid );
+	
+	var expense_str=document.getElementById("total_expense").value;
+	var expense = parseInt(expense_str);
+	
+	if(expense <= 0)
+		alert("Check your expense amount, Cannot be 0 !!");
+	//alert ( "exp = "+ expense );
+	
+	var max4 = expense / total_paid ;
+	var max3 = max4 - 500;
+	var max2 = max3 - 500;
+	
+	var collection = (max4 * total_4bhk ) + (max3 *total_3bhk) + (max2*total_2bhk)
+	//alert ( "collection = "+ collection );
+	
+	var deficit = expense - collection ;
+	//alert ( "Deficit = "+deficit );
+	
+	var perc_bhk2 = total_2bhk / total_paid ;
+	//alert ( "perc_bhk2 = "+perc_bhk2 );
+	var perc_bhk3 = total_3bhk / total_paid ;
+	//alert ( "perc_bhk3 = "+perc_bhk3 );
+	var perc_bhk4 = total_4bhk / total_paid ;
+	//alert ( "perc_bhk4 = "+perc_bhk4 );
+	
+	var shared_bybhk2 = deficit * perc_bhk2 ;
+	var fmaintenance_bhk2 = max2 + (shared_bybhk2 / total_2bhk );
+	var new_mainteance_bhk2 = parseInt( fmaintenance_bhk2 ) + 1;
+	//alert ( "new_mainteance_bhk2 = "+new_mainteance_bhk2 );
+	
+	var shared_bybhk3 = deficit * perc_bhk3 ;
+	var fmaintenance_bhk3 = max3 + (shared_bybhk3 / total_3bhk );
+	var new_mainteance_bhk3 = parseInt( fmaintenance_bhk3 ) + 1;
+	//alert ( "new_mainteance_bhk3 = "+new_mainteance_bhk3 );
+
+	var shared_bybhk4 = deficit * perc_bhk4 ;
+	var fmaintenance_bhk4 = max4 + (shared_bybhk4 / total_4bhk );
+	var new_mainteance_bhk4 = parseInt( fmaintenance_bhk4 ) + 1;
+	//alert ( "new_mainteance_bhk4 = "+new_mainteance_bhk4 );
+	
+	
+	document.getElementById("maintenance_bhk2").value = new_mainteance_bhk2;
+	document.getElementById("paid_by_bhk2").value = total_2bhk;
+	document.getElementById("expected_collection_bhk2").value = new_mainteance_bhk2 * total_2bhk ;
+
+	document.getElementById("maintenance_bhk3").value = new_mainteance_bhk3;
+	document.getElementById("paid_by_bhk3").value = total_3bhk;
+	document.getElementById("expected_collection_bhk3").value = new_mainteance_bhk3 * total_3bhk ;
+
+	document.getElementById("maintenance_bhk4").value = new_mainteance_bhk4;
+	document.getElementById("paid_by_bhk4").value = total_4bhk;
+	document.getElementById("expected_collection_bhk4").value = new_mainteance_bhk4 * total_4bhk ;	
+	
+	document.getElementById("total_doors").value = total_paid ;	
+	document.getElementById("total_collection").value = (new_mainteance_bhk2 * total_2bhk) + (new_mainteance_bhk3 * total_3bhk )+ (new_mainteance_bhk4 * total_4bhk); 	
+}
+</script>
+
+</body>
+
+<div id="footer" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<p id="copyright" property="dc:rights">&copy;
+  <span property="dc:dateCopyrighted">2018</span>
+  <span property="dc:publisher">VIOLA Residence Welfare Association</span><br/>
+  <span property="dc:author">Anshul Yadav</span><br/>
+  <span property="dc:email">yadav26@gmail.com</span>
+</p>
+</div>
+
+</html>
