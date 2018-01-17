@@ -17,7 +17,7 @@ table#t01 {
    <HEAD>
       <TITLE>VIOLA-RWA Maintenance Calculator</TITLE>
    </HEAD>
-<body>
+<body style="margin-left:50pt;padding:0">
 
 <h1>VRWA Maintenance Calculator.</h1>
 <h3> <font color="#FF4500">STEP - 1 :CALCULATE YOUR EXPENSES FOR CURRENT MONTH :</font></h3>
@@ -25,7 +25,7 @@ table#t01 {
 <table>
 	<tr bgcolor="#000000" >
 		<th  bgcolor="#ffffff">Services</th>
-		<th><font color="#FF4500">Cost(inr)</font></th>
+		<th><font color="#FF4500">Cost (INR)</font></th>
 	</tr>
 	<tr bgcolor="#FFD700">
 		<td style="text-align:right">STP</td>
@@ -159,19 +159,31 @@ table#t01 {
 	</tr>
 	<tr bgcolor="#FFD700">
 		<td>2BHK</td>
-		<td><input type="number" id="maintenance_bhk2" disabled=true ></td>
+		<td><input type="number" id="maintenance_bhk2" disabled=true style="background-color:lightgrey; 
+              border: solid 1px #6E6E6E;
+              height: 30px; 
+              font-size:18px; 
+              vertical-align:9px;color:#ff0000"></td>
 		<td><input type="number" id="paid_by_bhk2" disabled=true></td>
 		<td><input type="number" id="expected_collection_bhk2" disabled=true></td>
 	</tr>
 	<tr bgcolor="#32CD32">
 		<td>3BHK</td>
-		<td><input type="number" id="maintenance_bhk3" disabled=true></td>
+		<td><input type="number" id="maintenance_bhk3" disabled=true style="background-color:lightgrey; 
+              border: solid 1px #6E6E6E;
+              height: 30px; 
+              font-size:18px; 
+              vertical-align:9px;color:#ff0000"></td>
 		<td><input type="number" id="paid_by_bhk3" disabled=true></td>
 		<td><input type="number" id="expected_collection_bhk3" disabled=true></td>
 	</tr>
 	<tr bgcolor="#FFDEAD">
 		<td>4BHK</td>
-		<td><input type="number" id="maintenance_bhk4" disabled=true></td>
+		<td><input type="number" id="maintenance_bhk4" disabled=true style="background-color:lightgrey; 
+              border: solid 1px #6E6E6E;
+              height: 30px; 
+              font-size:18px; 
+              vertical-align:9px;color:#ff0000"></td>
 		<td><input type="number" id="paid_by_bhk4" disabled=true></td>
 		<td><input type="number" id="expected_collection_bhk4" disabled=true></td>
 	</tr>	
@@ -180,7 +192,7 @@ table#t01 {
 <td></td>
 <td></td>
 <td><input type="number" id="total_doors" disabled=true></td>
-<td><input type="number" id="total_collection" disabled=true></td>
+<td><input type="number" id="total_collection" disabled=true  ></td>
 </tr>  
 </table>
 
@@ -231,8 +243,10 @@ function myFunction() {
 	var expense_str=document.getElementById("total_expense").value;
 	var expense = parseInt(expense_str);
 	
-	if(expense <= 0)
+	if(expense <= 0){
 		alert("Check your expense amount, Cannot be 0 !!");
+		return;
+	}
 	//alert ( "exp = "+ expense );
 	
 	var max4 = expense / total_paid ;
