@@ -20,6 +20,18 @@ th, td {
     text-align: center;
 	color: #000000;
 }
+h1 {
+    color: blue;
+    font-family: 'verdana', serif;
+    font-size: 200%;
+}
+
+h2 {
+    color: #9932CC;
+    font-family: 'Comic Sans MS', serif;
+    font-size: 200%;
+}
+
 </style>
    <HEAD>
       <TITLE>VIOLA-RWA Maintenance Calculator</TITLE>
@@ -27,7 +39,8 @@ th, td {
    
 <body style="margin-left:50pt;padding:0">
 
-<h1>VRWA Maintenance Calculator.</h1>
+<h1>Viola Residence Welfare Association</h1>
+<h2> Maintenace Calculator</h2>
 <h3> <font color="#FF4500">STEP - 1 :CALCULATE YOUR EXPENSES FOR CURRENT MONTH :</font></h3>
 
 <table>
@@ -78,6 +91,7 @@ th, td {
 </table>
 <p/>
 
+<br/>
 <p><h3><h3> <font color="orange">STEP - 2 :Input data - Expense to be shared among(door# paid last month).</h3></p>
 
 <table>
@@ -156,7 +170,7 @@ th, td {
 
 <button onclick="myFunction()">Calculate Maintenance</button>
 <br />
-
+<br/>
 <p><h3><h3> <font color="green">Maintenace table distribution 2/3/4 bhk.</h3></p>
 
 <table >
@@ -229,21 +243,142 @@ function myFunction() {
 	
     
 	var a2=document.getElementById("a2bhk").value;
+	if(parseInt(a2) < 0 || parseInt(a2) > 10 )
+	{
+		document.getElementById('a2bhk').style.borderColor = "red";
+		alert("Check field A-2BHK value, should be between 0 & 10");
+		return false;
+	}
+	else
+	{
+		document.getElementById('a2bhk').style.borderColor = "green";
+	}
+	
 	var b2=document.getElementById("b2bhk").value;
+	if(b2 < 0 || b2 > 5 )
+	{
+		document.getElementById('b2bhk').style.borderColor = "red";
+		alert("Check field B-2BHK value, should be between 0 & 5");
+		return false;
+	}
+	else
+	{
+		document.getElementById('b2bhk').style.borderColor = "green";
+	}
+	
 	var c2=document.getElementById("c2bhk").value;
+	if(c2 < 0 || c2 > 5 )
+	{
+		document.getElementById('c2bhk').style.borderColor = "red";
+		alert("Check field C-2BHK value, should be between 0 & 5");
+		return false;
+	}
+	else
+	{
+		document.getElementById('c2bhk').style.borderColor = "green";
+	}	
+	
 	var e2=document.getElementById("e2bhk").value;
+	if(e2 < 0 || e2 > 10 )
+	{
+		document.getElementById('e2bhk').style.borderColor = "red";
+		alert("Check field E-2BHK value, should be between 0 & 10");
+		return false;
+	}
+	else
+	{
+		document.getElementById('e2bhk').style.borderColor = "green";
+	}	
+	
 	var total_2bhk = parseInt(a2)+parseInt(b2)+parseInt(c2)+parseInt(e2);
 	
 	
 	var a3=document.getElementById("a3bhk").value;
+	if(a3 < 0 || a3 > 5 )
+	{
+		document.getElementById('a3bhk').style.borderColor = "red";
+		alert("Check field A-3BHK value, should be between 0 & 5");
+		return false;
+	}
+	else
+	{
+		document.getElementById('a3bhk').style.borderColor = "green";
+	}
+	
 	var b3=document.getElementById("b3bhk").value;
+	if(b3 < 0 || b3 > 15 )
+	{
+		document.getElementById('b3bhk').style.borderColor = "red";
+		alert("Check field B-3BHK value, should be between 0 & 15");
+		return false;
+	}
+	else
+	{
+		document.getElementById('b3bhk').style.borderColor = "green";
+	}
+	
 	var c3=document.getElementById("c3bhk").value;
-	var d3=document.getElementById("d3bhk").value;	
-	var e3=document.getElementById("e3bhk").value;	
+	if(c3 < 0 || c3 > 20 )
+	{
+		document.getElementById('c3bhk').style.borderColor = "red";
+		alert("Check field C-3BHK value, should be between 0 & 20");
+		return false;
+	}
+	else
+	{
+		document.getElementById('c3bhk').style.borderColor = "green";
+	}
+	
+	var d3=document.getElementById("d3bhk").value;
+	if(d3 < 0 || d3 > 15 )
+	{
+		document.getElementById('d3bhk').style.borderColor = "red";
+		alert("Check field D-3BHK value, should be between 0 & 15");
+		return false;
+	}
+	else
+	{
+		document.getElementById('d3bhk').style.borderColor = "green";
+	}
+	
+	var e3=document.getElementById("e3bhk").value;
+	if(e3 < 0 || e3 > 15 )
+	{
+		document.getElementById('e3bhk').style.borderColor = "red";
+		alert("Check field E-3BHK value, should be between 0 & 15");
+		return false;
+	}
+	else
+	{
+		document.getElementById('e3bhk').style.borderColor = "green";
+	}
+	
 	var total_3bhk = parseInt(a3)+parseInt(b3)+parseInt(c3)+parseInt(d3)+parseInt(e3);
 	
 	var b4=document.getElementById("b4bhk").value;
+	if(b4 < 0 || b4 > 5 )
+	{
+		document.getElementById('b4bhk').style.borderColor = "red";
+		alert("Check field B-4BHK value, should be between 0 & 5");
+		return false;
+	}
+	else
+	{
+		document.getElementById('b4bhk').style.borderColor = "green";
+	}
+	
 	var d4=document.getElementById("d4bhk").value;	
+	if(d4 < 0 || d4 > 5 )
+	{
+		document.getElementById('d4bhk').style.borderColor = "red";
+		alert("Check field D-4BHK value, should be between 0 & 5");
+		return false;
+	}
+	else
+	{
+		document.getElementById('d4bhk').style.borderColor = "green";
+	}
+	
 	var total_4bhk = parseInt(b4)+ parseInt(d4);
 	
 	var total_paid = parseInt(total_2bhk) + parseInt(total_3bhk) + parseInt(total_4bhk);
