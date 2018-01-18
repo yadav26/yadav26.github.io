@@ -81,10 +81,7 @@ h2 {
 		<td style="text-align:right">GARBAGE</td>
 		<td><input type="number" id="garbage_exp" min="0" value="5000"></td>
 	</tr>
-	<tr bgcolor="#FFD700">
-		<td style="text-align:right">Misc.(others)</td>
-		<td><input type="number" id="misc_exp" min="0" value="0"></td>
-	</tr>
+
 	<tr>
 		<td><button onclick="ExpenseCalculate()">Calculate Expense</button></td>
 		<td><input type="number" id="total_expense" disabled=true min="0" value="0" ></td>
@@ -246,7 +243,8 @@ function addRow() {
 	input_service_name.setAttribute('id', 'new_service_name_'+maxID );
 	input_service_name.setAttribute('value', '' );	
 	input_service_name.setAttribute('placeholder', 'New expense name' );
-	
+	input_service_name.setAttribute('style', 'text-transform:uppercase' );	
+
 	// Add some text to the new cells:
 	cell1.innerHTML = (maxID + 1) + ".";
 	cell1.appendChild(input_service_name);
@@ -275,9 +273,8 @@ function ExpenseCalculate(){
 	var diesel_exp=document.getElementById("diesel_exp").value;
 	var amenities_exp=document.getElementById("amenities_exp").value;
 	var garbage_exp=document.getElementById("garbage_exp").value;
-	var misc_exp=document.getElementById("misc_exp").value;
 	
-	var total_expense = parseInt(stp_exp)+parseInt(security_exp)+parseInt(housekeeping_exp)+parseInt(bescom_exp)+parseInt(generator_exp)+parseInt(diesel_exp)+parseInt(amenities_exp)+parseInt(garbage_exp) +parseInt(misc_exp);
+	var total_expense = parseInt(stp_exp)+parseInt(security_exp)+parseInt(housekeeping_exp)+parseInt(bescom_exp)+parseInt(generator_exp)+parseInt(diesel_exp)+parseInt(amenities_exp)+parseInt(garbage_exp) 
 	
 
 //Find newly added expenses if any
