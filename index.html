@@ -43,7 +43,8 @@ h2 {
 <h2> Maintenace Calculator</h2>
 <h3> <font color="#FF4500">STEP - 1 :CALCULATE YOUR EXPENSES FOR CURRENT MONTH :</font></h3>
 
-<table>
+<button onclick="addRow();">Add New Expense</button>
+<table id="expense_table">
 	<tr bgcolor="#000000" >
 		<th  bgcolor="#ffffff">Services</th>
 		<th><font color="#FF4500">Cost (INR)</font></th>
@@ -83,7 +84,7 @@ h2 {
 	<tr bgcolor="#FFD700">
 		<td style="text-align:right">Misc.(others)</td>
 		<td><input type="number" id="misc_exp" min="0" value="0"></td>
-	</tr>	
+	</tr>
 	<tr>
 		<td><button onclick="ExpenseCalculate()">Calculate Expense</button></td>
 		<td><input type="number" id="total_expense" disabled=true min="0" value="0" ></td>
@@ -163,12 +164,15 @@ h2 {
 			<td><input type="number" id="d4bhk" min="0" max="5" value="3" style="text-align:center;" ></td>
 			<td><input type="number" id="e4bhk" min="0" max="0" disabled=true style="text-align:center;" ></td>
 		</tr>
+		<tr>
+			<th ><button onclick="myFunction()">Calculate Maintenance</button></th>
+		</tr>
 
   </tr>    
 </table>
 <br/>
 
-<button onclick="myFunction()">Calculate Maintenance</button>
+
 <br />
 <br/>
 <p><h3><h3> <font color="green">Maintenace table distribution 2/3/4 bhk.</h3></p>
@@ -220,9 +224,49 @@ h2 {
 </table>
 
 
+ <button type="button" onclick="printJS('printJS-form', 'html')">
+    Print Form
+ </button>
+ 
+<script>
+var maxID = 0;
+
+function addRow() {
+	var t = document.getElementById("expense_table");
+	var rows = t.getElementsByTagName("tr");
+	var r = rows[rows.length - 1];
+	var row_new = t.insertRow(rows.length - 1);
+
+	// Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+	var cell1 = row_new.insertCell(0);
+	var cell2 = row_new.insertCell(1);
+
+	var input_service_name = document.createElement("input");
+	input_service_name.setAttribute('type', 'text');
+	input_service_name.setAttribute('id', 'new_service_name_'+maxID );
+	input_service_name.setAttribute('value', '' );	
+	input_service_name.setAttribute('placeholder', 'New expense name' );
+	
+	// Add some text to the new cells:
+	cell1.innerHTML = (maxID + 1) + ".";
+	cell1.appendChild(input_service_name);
+
+	//<input type="number" id="misc_add_"+{id} min="0" value="0">
+	var input_service_value = document.createElement("input");
+	input_service_value.setAttribute('type', 'number');
+	input_service_value.setAttribute('id', 'new_service_val_'+maxID );
+	input_service_value.setAttribute('value', '<New service value>' );
+	cell2.appendChild(input_service_value);
+
+	maxID++;
+	
+}
+</script>
+<script type='text/javascript' src='print.js'></script>
+
 <script>
 function ExpenseCalculate(){
-	
+
 	var stp_exp=document.getElementById("stp_exp").value;
 	var security_exp=document.getElementById("security_exp").value;
 	var housekeeping_exp=document.getElementById("housekeeping_exp").value;
@@ -235,8 +279,15 @@ function ExpenseCalculate(){
 	
 	var total_expense = parseInt(stp_exp)+parseInt(security_exp)+parseInt(housekeeping_exp)+parseInt(bescom_exp)+parseInt(generator_exp)+parseInt(diesel_exp)+parseInt(amenities_exp)+parseInt(garbage_exp) +parseInt(misc_exp);
 	
+
+//Find newly added expenses if any
+	var new_exp=0;
+	for( var i=0;i<maxID; ++i)
+	{
+		new_exp += parseInt(document.getElementById("new_service_val_"+i).value);
+	}
 	
-	document.getElementById("total_expense").value = total_expense;
+	document.getElementById("total_expense").value = total_expense + new_exp;
 }
 
 function myFunction() {
